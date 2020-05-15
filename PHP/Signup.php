@@ -36,7 +36,24 @@
 					<span class="login100-form-title p-b-49">
 						Sign up
 					</span>
-
+					<?php
+					if(isset($_GET['error'])){
+						if($_GET['error']=="emptyfields"){
+							echo'<p> Fill in all fields!</p>';
+						} else if($_GET['error']=="invalidemail&user"){
+							echo'<p> Invalid username and email!</p>';
+						} else if($_GET['error']=="invaliduser"){
+							echo'<p> Invalid username!</p>';
+						} else if($_GET['error']=="invalidemail"){
+							echo'<p> Invalid email!</p>';
+						} else if($_GET['error']=="passwordcheck"){
+							echo'<p> Password does not match!</p>';
+						} else if($_GET['error']=="usertaken"){
+							echo'<p> User is already taken!</p>';
+						} else if($_GET['error']=="passwordlen"){
+							echo'<p> Password should have a length of minimum 8!</p>';
+					}} 
+					?>
 					<div>
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="user" placeholder="Type your username">

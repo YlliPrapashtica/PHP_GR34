@@ -39,7 +39,18 @@ session_start();
 					<span class="login100-form-title p-b-49">
 						Login
 					</span>
-
+					<?php
+					if(isset($_GET['error'])){
+						if($_GET['error']=="emptyfields"){
+							echo'<p> Fill in all fields!</p>';
+						} else if($_GET['error']=="wrongpassword"){
+							echo'<p> Your password is incorrect!!</p>';
+						} else if($_GET['error']=="nouser"){
+							echo'<p> User does not exist!</p>';
+						}} else if($_GET['Login']=="success"){
+							echo'<p> Login successful!</p>';
+					}
+					?>
 					<div >
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="user" placeholder="Type your username">
