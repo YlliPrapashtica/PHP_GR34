@@ -25,7 +25,13 @@
   src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
 }
 
-
+body > div.limiter > div > div > form > p{
+  font-size: 25px !important;
+    color: red !important;
+    text-align: center !important;
+    padding-bottom: 50px !important;
+    font-weight: bold !important;
+}
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -338,17 +344,17 @@ iframe {
 
 .login100-form-bgbtn {
   position: absolute;
+  background-color: #ff9000;
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a64bf4;
-  background: -webkit-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  /* background: #a64bf4; */
+  /* background: -webkit-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff); */
   background: -o-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   background: -moz-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   top: 0;
   left: -100%;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -439,13 +445,16 @@ iframe {
   opacity: 1;
 }
 
+
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;
     opacity: 1;
   }
 }
-
+.container-login100 {
+  background-color: indigo;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ Social item ]*/
@@ -480,3 +489,8 @@ iframe {
     padding-right: 15px;
   }
 } 
+#account{
+  position: absolute !important;
+    top: 0px;
+    right: 0;
+}

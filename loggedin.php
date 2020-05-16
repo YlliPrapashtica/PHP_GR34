@@ -18,8 +18,9 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/animate.css">
 <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 </head>
 <body>
 
@@ -30,24 +31,30 @@
 	<header class="header">
 		<div class="header_content d-flex flex-column align-items-center justify-content-lg-end justify-content-center">
 			
-			<!-- Logo -->
+			
 			<div class="logo"><a href="#"><img class="logo_1" src="images/logo.png" alt=""><img class="logo_2" src="images/logo_2.png" alt=""><img class="logo_3" src="images/logo_3.png" alt=""></a></div>
-           
-            <div id="account">
-                <button class="button menu_button" > <a href="login.php"> Log in </a> </button>
-            </div>
+            
+      
+      <?php
+
+          if($_SESSION['username']) {
+          ?>
+          <div id="account">
+          Welcome <?php echo $_SESSION["username"]; ?>.<br> Click here to <a href="logout.php" tite="Logout">Logout.
+          <?php
+          }else echo "<h1>Please login first .</h1>";
+          ?></div>
+			<!-- Main Nav -->
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-center justify-content-start">
 					<li class="active"><a href="index.html">Home</a></li>
 					<li><a href="about.html">About us</a></li>
 					<li><a href="rooms.html">Rooms</a></li>
 					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.php">Book You Room</a></li>
+					<li><a href="Log in.html">My Account</a></li>
+					<li><a href="booking.html">Book You Room</a></li>
 				</ul>
-            </nav>
-            <div>
-                $_GET
-            </div>
+			</nav>
 
 			<!-- Header Right -->
 			<div class="header_right d-flex flex-row align-items-center justify-content-start">
@@ -62,7 +69,7 @@
 				</div>
 
 				<!-- Header Link -->
-				<div class="header_link"><a href="booking.php">Book Your Room Now</a></div>
+				<div class="header_link"><a href="#">Book Your Room Now</a></div>
 
 				<!-- Hamburger Button -->
 				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>

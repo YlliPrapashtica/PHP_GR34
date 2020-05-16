@@ -1,15 +1,14 @@
 <?php
 
 require 'connect.php';
-
 $username = mysqli_real_escape_string($con, $_POST['user']);
 $email = mysqli_real_escape_string($con, $_POST['email']);
 $password = mysqli_real_escape_string($con, $_POST['pass']);
 $password1 = mysqli_real_escape_string($con, $_POST['pass1']);
+$id = mysqli_insert_id($con);
 $hid = 1;
 $fn = "emri";
 $ln = "mbiemri";
-
 
 if(empty($username) || empty($email) || empty($password) || empty($password1)){
 
@@ -28,7 +27,12 @@ if(empty($username) || empty($email) || empty($password) || empty($password1)){
 } else if($password !== $password1){
 	header("Location: Signup.php?error=passwordcheck&user=".$username."&email=".$email);
     exit();
-} else {
+} 
+else if (strlen($password) <8  ){
+    header("Location: Signup.php?error=passwordlen&user=".$username."&email=".$email);
+    exit();
+}
+    else {
 
     $sql = 'SELECT username FROM guests WHERE username=?';
     $stmt = mysqli_stmt_init($con);
@@ -36,6 +40,7 @@ if(empty($username) || empty($email) || empty($password) || empty($password1)){
         header("Location: Signup.php?error=sqlerror");
 
     } else {
+
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
@@ -44,22 +49,24 @@ if(empty($username) || empty($email) || empty($password) || empty($password1)){
             header("Location: Signup.php?error=usertaken&email=" . $email);
             exit();
         } else {
-            $hashedPass = password_hash($password, PASSWORD_DEFAULT);
-
+           // $hashedPass = password_hash($password, PASSWORD_DEFAULT);
+            
             $strs = "sss";
-            $stmt = $con->prepare('INSERT INTO guests (guest_id, guest_first_name,guest_last_name, guest_email,hotel_id, username, guest_pass) VALUES (?, ?, ?, ?, ?, ?, ?)');
-            $stmt ->bind_param( "sssssss",$id,$fn,$ln,$email ,$hid ,$username , $hashedPass);
-            $stmt->execute();
+            $stmt = $con->prepare('INSERT INTO guests (guest_id, guest_first_name,guest_last_name, guest_email,hotel_id, username, guest_pass) VALUES ( ?,?, ?, ?, ?, ?, ?)');
+            $stmt ->bind_param( "sssssss",$id,$fn,$ln,$email ,$hid ,$username , $password);
+            
+            if( $stmt->execute()){
+                header("Location: login.php");
+            }
+
+
 
         }
     }
-
 
     mysqli_stmt_close($stmt);
     mysqli_close($con);
 }
 
 
-
 include('Signup.php');
-?>

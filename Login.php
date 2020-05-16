@@ -1,10 +1,24 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Log in</title>
+
+	<style type = "text/css">
+         body {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:14px;
+         }
+         label {
+            font-weight:bold;
+            width:100px;
+            font-size:14px;
+         }
+         .box {
+            border:#666666 solid 1px;
+         }
+      </style>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -33,7 +47,7 @@ session_start();
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form action="LoginValidation.php" method="POST">
 					<span class="login100-form-title p-b-49">
@@ -53,17 +67,12 @@ session_start();
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					
-					<div class="text-right p-t-8 p-b-31">
-						<a href="#">
-							Forgot password?
-						</a>
-					</div>
-					
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
+							
 							<button class="login100-form-btn">
-								Login
+							Log in
 							</button>
 						</div>
 					</div>
@@ -97,6 +106,7 @@ session_start();
 	
 
 	<div id="dropDownSelect1"></div>
+	
 	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
