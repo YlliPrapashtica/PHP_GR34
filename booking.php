@@ -63,9 +63,6 @@
 							</svg>
 						</div>
 		
-						<!-- Header Link -->
-						<div class="header_link"><a href="#">Book Your Room Now</a></div>
-		
 						<!-- Hamburger Button -->
 						<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
 		
@@ -147,9 +144,11 @@
 			<!-- Book room -->
 			<div class="wrapper">
 				<div class="inner">
-					<form action="bookingValidator.php" method="POST">
+				<form action="bookingValidator.php" method="POST">
 						<h3>Find a Room</h3>
-						
+						<div class="form-row">
+							
+							
 						</div>
 						<div class="form-row">
 							<div class="form-wrapper">
@@ -187,6 +186,9 @@
 							
 						echo '</div>';
 						?>
+
+
+
 						<div class="form-row last">
 							<div class="form-wrapper">
 								<label for="">Adults *</label>

@@ -15,8 +15,7 @@ $password = mysqli_real_escape_string($con, $_POST['pass']);
             header("Location: Login.php?error=sqlerror");
             exit();
         }else if(mysqli_stmt_prepare($stmt, $sql)){
-        
-            $sql = 
+  
             $login = mysqli_query($con,"SELECT guest_id FROM guests WHERE username = '$username' and guest_pass = '$password'");
 
     

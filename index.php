@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,65 +14,33 @@
 <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<script>
+ function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("showSuggestion").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("showSuggestion").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+    xmlhttp.send();
+  }
+}
+</script>
 </head>
 <body>
 
 <div class="super_container">
 	
 	<!-- Header -->
-
-	<header class="header">
-		<div class="header_content d-flex flex-column align-items-center justify-content-lg-end justify-content-center">
-			
-			<!-- Logo -->
-			<div class="logo"><a href="#"><img class="logo_1" src="images/logo.png" alt=""><img class="logo_2" src="images/logo_2.png" alt=""><img class="logo_3" src="images/logo_3.png" alt=""></a></div>
-
-			<!-- Main Nav -->
-			<nav class="main_nav">
-				<ul class="d-flex flex-row align-items-center justify-content-start">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rooms.html">Rooms</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="Log in.html">My Account</a></li>
-					<li><a href="booking.html">Book You Room</a></li>
-				</ul>
-			</nav>
-
-			<!-- Header Right -->
-			<div class="header_right d-flex flex-row align-items-center justify-content-start">
-				
-				<!-- Search Activation Button -->
-				<div class="search_button">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 512 512" enable-background="new 0 0 512 512" width="512px" height="512px">
-						<g>
-							<path d="M495,466.2L377.2,348.4c29.2-35.6,46.8-81.2,46.8-130.9C424,103.5,331.5,11,217.5,11C103.4,11,11,103.5,11,217.5   S103.4,424,217.5,424c49.7,0,95.2-17.5,130.8-46.7L466.1,495c8,8,20.9,8,28.9,0C503,487.1,503,474.1,495,466.2z M217.5,382.9   C126.2,382.9,52,308.7,52,217.5S126.2,52,217.5,52C308.7,52,383,126.3,383,217.5S308.7,382.9,217.5,382.9z" fill="#FFFFFF"></path>
-						</g>
-					</svg>
-				</div>
-
-				<!-- Header Link -->
-				<div class="header_link"><a href="#">Book Your Room Now</a></div>
-
-				<!-- Hamburger Button -->
-				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
-
-			</div>
-
-			<!-- Search Panel -->
-			<div class="search_panel">
-				<div class="search_panel_content d-flex flex-row align-items-center justify-content-start">
-					<img src="images/search.png" alt="">
-					<form action="#" class="search_form">
-						<input type="text" class="search_input" placeholder="Type your search here" required="required">
-					</form>
-					<div class="search_close ml-auto d-flex flex-column align-items-center justify-content-center"><div></div></div>
-				</div>
-			</div>
-		</div>
-			
-	</header>
-
+	<?php
+		include('header.php')
+	?>
+	
 	<!-- Logo Overlay -->
 
 	<div class="logo_overlay">
@@ -101,15 +68,13 @@
 			<!-- Menu Navigation -->
 			<nav class="menu_nav text-center">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rooms.html">Rooms</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.html">Book You Room</a></li>
-					<li><a href="Log in.html">My Account</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About us</a></li>
+					<li><a href="rooms.php">Rooms</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
-			<div class="button menu_button"><a href="#">book now</a></div>
+			<div class="button menu_button"><a href="booking.php">book now</a></div>
 
 			<!-- Menu Social -->
 			<div class="social menu_social">
@@ -136,48 +101,7 @@
 		</div>
 	</div>
 
-	<!-- Booking -->
-
-	<div class="booking">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="booking_container d-flex flex-row align-items-end justify-content-start">
-						<form action="#" class="booking_form">
-							<div class="booking_form_container d-flex flex-lg-row flex-column align-items-start justify-content-start flex-wrap">
-								<div class="booking_form_inputs d-flex flex-row align-items-start justify-content-between flex-wrap">
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
-									<div class="custom-select">
-										<select>
-											<option value="0">Adults</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-									<div class="custom-select">
-										<select>
-											<option value="0">Children</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-								</div>
-								<button class="booking_form_button ml-lg-auto">book now</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
 	<!-- Intro -->
 
 	<div class="intro">
@@ -194,20 +118,42 @@
 				<div class="col-xl-8 col-lg-10 offset-xl-2 offset-lg-1">
 					<div class="intro_text text-center">
 						 <?php
-               $filename = "file.txt";
-               $file = fopen( $filename, "r" );
-               if( $file == false ) {
-                  echo ( "Error in opening file" );
-                  exit();
-               }
-               $filesize = filesize( $filename );
-               $filetext = fread( $file, $filesize );
-               fclose( $file );
-               echo ( "<p class=\"pp\">$filetext</p>" );
-            ?>
+		               $filename = "file.txt";
+		               $file = fopen( $filename, "r" );
+		               if( $file == false ) {
+		                  echo ( "Error in opening file" );
+		                  exit();
+		               }
+		               $filesize = filesize( $filename );
+		               $filetext = fread( $file, $filesize );
+		               fclose( $file );
+		               echo ( "<p class=\"pp\">$filetext</p>" );
+		            ?>	
 					</div>
+
+					<?php
+              // e fshin content edhe ja nis prej fillimi..e krijon ni file tri nese s ekziston
+              //$myfile = fopen("newfile.txt", "w") or die("Unable to open file!"); 
+
+              // kur tshton tekst e bon append tekstin e ri qe shtohet
+              $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+              $txt = "PHPewgffgre\n";
+              fwrite($myfile, $txt);
+              $txt = "FIEwefewK\n";
+              fwrite($myfile, $txt);
+              fclose($myfile);
+              ?>
+              <p>
+                <p class="pp" style="text-align: center;">Para se tklikohet "Write function" tek index.php  mund tshtohet teksti
+          pastaj pas klikimit te butonit teksti i shtuar do te ruhet ne newfile.txt</p>
+            <input class="writebutton writebutton1" type="button" style="margin-left: 40%;" value="Write Function" 
+            onclick="window.location.reload();"/>
+            </p>
+
 				</div>
+
 			</div>
+
 			<div class="row gallery_row">
 				<div class="col">
 
@@ -414,8 +360,17 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<div>Clients</div>
-						<h1>Testimonials</h1>
+						<div>Game</div>
+						<div style="margin-top: 60px;">
+    
+
+            <img src="images/dice/<?php echo rand(1,6); ?>.png " alt="">
+            <p>
+            <input class="button1" type="button" value="Roll the dice" onclick="window.location.reload();"/>
+            </p>
+       			
+       				    </div>    
+       					
 					</div>
 				</div>
 			</div>
@@ -424,40 +379,17 @@
 					
 					<!-- Testimonials Slider -->
 					<div class="testimonials_slider_container">
+						 <div> 
+       				 		<form action="">
+				        	  <label for="fname">Food name</label>
+						      <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+						    </form>
+							 <p>Suggestions: <span id="showSuggestion"></span></p>
+						 </div>
 						<div class="owl-carousel owl-theme testimonials_slider">
 
-							<!-- Slide -->
-							<div>
-								<div class="testimonial_text text-center">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scele risque at. Quisque eget.</p>
-								</div>
-								<div class="testimonial_author text-center">
-									<div class="testimonial_author_image"><img src="images/author_1.jpg" alt=""></div>
-									<div class="testimonial_author_name"><a href="#">Maria Smith,</a><span> Client</span></div>
-								</div>
-							</div>
-
-							<!-- Slide -->
-							<div>
-								<div class="testimonial_text text-center">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scele risque at. Quisque eget.</p>
-								</div>
-								<div class="testimonial_author text-center">
-									<div class="testimonial_author_image"><img src="images/author_1.jpg" alt=""></div>
-									<div class="testimonial_author_name"><a href="#">Maria Smith,</a><span> Client</span></div>
-								</div>
-							</div>
-
-							<!-- Slide -->
-							<div>
-								<div class="testimonial_text text-center">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scele risque at. Quisque eget.</p>
-								</div>
-								<div class="testimonial_author text-center">
-									<div class="testimonial_author_image"><img src="images/author_1.jpg" alt=""></div>
-									<div class="testimonial_author_name"><a href="#">Maria Smith,</a><span> Client</span></div>
-								</div>
-							</div>
+							
+							
 
 						</div>
 					</div>
@@ -525,4 +457,54 @@
 <script src="plugins/jquery-datepicker/jquery-ui.js"></script>
 <script src="js/custom.js"></script>
 </body>
+ <style>
+.writebutton {
+  background-color: #64cdb7;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.writebutton1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #64cdb7;
+}
+  .writebutton1:hover {
+  background-color: #64cdb7;
+  color: white;
+}
+.button1 {
+	margin-top: 20px;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #64cdb7;
+  border: none;
+  border-radius: 15px;
+  box-shadow:0 0 5px 0px #999
+}
+
+.button1:hover {background-color: #499081;}
+
+.button1:active {
+  background-color: #64cdb7;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
 </html>

@@ -56,16 +56,14 @@
 
 					<div >
 						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="user" placeholder="Type your username"
-						value="<?php if(isset($_COOKIE["username"])){echo $_COOKIE["username"];}?>">
+						<input class="input100" type="text" name="user" placeholder="Type your username">
 
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div>
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Type your password"
-						value="<?php if(isset($_COOKIE["password"])){echo $_COOKIE["password"];}?>">
+						<input class="input100" type="password" name="pass" placeholder="Type your password">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					

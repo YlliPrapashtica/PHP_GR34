@@ -82,19 +82,7 @@
 		</div>
 	</div>
 
-	<!-- Booking -->
-
-	<div class="booking">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="booking_container d-flex flex-row align-items-end justify-content-start">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
 	<!-- Rooms -->
 
 	<div class="rooms">
@@ -107,43 +95,46 @@
 						<div class="card">
 							<img class="card-img-top" src="images/room_1.jpg" alt="Room image description">
 							<div class="card-body">
-								<div class="rooms_title"><h2>Luxury Double Suite</h2></div>
-								<div class="rooms_text">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque.</p>
-								</div>
+							<?php
+							require "connect.php";
+								$sql = "SELECT room_type_name,room_cost,room_type_description,room_type_id  FROM room_type WHERE room_type_id=1";
+								$result = mysqli_query($con,$sql);
+										
+									while ($row = mysqli_fetch_array ($result)){
+									echo('<div class="rooms_title"><h2>'.$row['room_type_name'].'</h2></div>');
+							echo('<div class="rooms_text">');
+							echo('<p>'.$row['room_type_description'].'</p>');
+							echo ('</div>');
 								
-								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="booking.php">Book now</a></div>
-							</div>
+								echo ('<div class="rooms_price">'.$row['room_cost'].'/<span>Night</span></div>');
+								echo ('<div class="button rooms_button"><a href="booking.php">Book now</a></div>');
+					
+								  }
+								
+								?>
+									</div>
 						</div>
-
 						<!-- Room -->
 						<div class="card">
 							<img class="card-img-top" src="images/room_2.jpg" alt="Room image description">
 							<div class="card-body">
-								<div class="rooms_title"><h2>Luxury Double Suite</h2></div>
-								<div class="rooms_text">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque.</p>
-								</div>
-								<div class="rooms_list">
-									<ul>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Morbi tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Pellentesque vel neque finibus elit</span>
-										</li>
-									</ul>
-								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="booking.php">book now</a></div>
+							<?php
+							require "connect.php";
+								$sql = "SELECT room_type_name,room_cost,room_type_description,room_type_id  FROM room_type WHERE room_type_id=2";
+								$result = mysqli_query($con,$sql);
+										
+									while ($row = mysqli_fetch_array ($result)){
+									echo('<div class="rooms_title"><h2>'.$row['room_type_name'].'</h2></div>');
+							echo('<div class="rooms_text">');
+							echo('<p>'.$row['room_type_description'].'</p>');
+							echo ('</div>');
+								
+								echo ('<div class="rooms_price">'.$row['room_cost'].'/<span>Night</span></div>');
+								echo ('<div class="button rooms_button"><a href="booking.php">Book now</a></div>');
+					
+								  }
+								
+								?>
 							</div>
 						</div>
 
@@ -151,28 +142,23 @@
 						<div class="card">
 							<img class="card-img-top" src="images/room_3.jpg" alt="Room image description">
 							<div class="card-body">
-								<div class="rooms_title"><h2>Luxury Single Room</h2></div>
-								<div class="rooms_text">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at.</p>
-								</div>
-								<div class="rooms_list">
-									<ul>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Morbi tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Pellentesque vel neque finibus elit</span>
-										</li>
-									</ul>
-								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="booking.php">book now</a></div>
+							<?php
+							require "connect.php";
+								$sql = "SELECT room_type_name,room_cost,room_type_description,room_type_id  FROM room_type WHERE room_type_id=3";
+								$result = mysqli_query($con,$sql);
+										
+									while ($row = mysqli_fetch_array ($result)){
+									echo('<div class="rooms_title"><h2>'.$row['room_type_name'].'</h2></div>');
+							echo('<div class="rooms_text">');
+							echo('<p>'.$row['room_type_description'].'</p>');
+							echo ('</div>');
+								
+								echo ('<div class="rooms_price">'.$row['room_cost'].'/<span>Night</span></div>');
+								echo ('<div class="button rooms_button"><a href="booking.php">Book now</a></div>');
+					
+								  }
+								
+								?>
 							</div>
 						</div>
 
@@ -181,28 +167,23 @@
 							<img class="card-img-top" src="images/room_4.jpg" alt="Room image description">
 							<div class="card-special-panel">special offer</div>
 							<div class="card-body">
-								<div class="rooms_title"><h2>Budget Suite</h2></div>
-								<div class="rooms_text">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at.</p>
-								</div>
-								<div class="rooms_list">
-									<ul>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Morbi tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Pellentesque vel neque finibus elit</span>
-										</li>
-									</ul>
-								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="booking.php">book now</a></div>
+							<?php
+							require "connect.php";
+								$sql = "SELECT room_type_name,room_cost,room_type_description,room_type_id  FROM room_type WHERE room_type_id=4";
+								$result = mysqli_query($con,$sql);
+										
+									while ($row = mysqli_fetch_array ($result)){
+									echo('<div class="rooms_title"><h2>'.$row['room_type_name'].'</h2></div>');
+							echo('<div class="rooms_text">');
+							echo('<p>'.$row['room_type_description'].'</p>');
+							echo ('</div>');
+								
+								echo ('<div class="rooms_price">'.$row['room_cost'].'/<span>Night</span></div>');
+								echo ('<div class="button rooms_button"><a href="booking.php">Book now</a></div>');
+					
+								  }
+								
+								?>
 							</div>
 						</div>
 
@@ -238,7 +219,7 @@
 								<div class="footer_info d-flex flex-column align-items-center justify-content-start">
 									<div class="text-center">
 										<div>Address:</div>
-										<div>FIEK</div>
+										<div>Main Str, no 23, New York</div>
 									</div>
 								</div>
 							</div>
@@ -246,12 +227,13 @@
 								<div class="footer_info d-flex flex-column align-items-lg-start align-items-center justify-content-start">
 									<div class="text-center">
 										<div>Mail:</div>
-										<div>hoteltekniku@gmail.com</div>
+										<div>hotel@contact.com</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					
 			</div>
 		</div>
 	</footer>

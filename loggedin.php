@@ -43,7 +43,8 @@
           Welcome <?php echo $_SESSION["username"]; ?>.<br> Click here to <a href="logout.php" tite="Logout">Logout.
           <?php
           }else echo "<h1>Please login first .</h1>";
-          ?></div>
+		  ?></div>
+		 
 			<!-- Main Nav -->
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-center justify-content-start">
@@ -116,16 +117,14 @@
 
 			<!-- Menu Navigation -->
 			<nav class="menu_nav text-center">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rooms.html">Rooms</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.html">Book You Room</a></li>
-					<li><a href="Log in.html">My Account</a></li>
+			<ul class="d-flex flex-row align-items-center justify-content-start">
+					<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About us</a></li>
+					<li><a href="rooms.php">Rooms</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
-			<div class="button menu_button"><a href="#">book now</a></div>
+			<div class="button menu_button"><a href="booking.php">book now</a></div>
 
 			<!-- Menu Social -->
 			<div class="social menu_social">

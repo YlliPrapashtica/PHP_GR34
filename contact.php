@@ -52,15 +52,14 @@
 			<!-- Menu Navigation -->
 			<nav class="menu_nav text-center">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rooms.html">Rooms</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.html">Book You Room</a></li>
-					<li><a href="Log in.html">My Account</a></li>
+					
+				<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About us</a></li>
+					<li><a href="rooms.php">Rooms</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
-			<div class="button menu_button"><a href="#">book now</a></div>
+			<div class="button menu_button"><a href="booking.php">book now</a></div>
 
 			<!-- Menu Social -->
 			<div class="social menu_social">
@@ -85,48 +84,7 @@
 		</div>
 	</div>
 
-	<!-- Booking -->
-
-	<div class="booking">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="booking_container d-flex flex-row align-items-end justify-content-start">
-						<form action="#" class="booking_form">
-							<div class="booking_form_container d-flex flex-lg-row flex-column align-items-start justify-content-start flex-wrap">
-								<div class="booking_form_inputs d-flex flex-row align-items-start justify-content-between flex-wrap">
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
-									<div class="custom-select">
-										<select>
-											<option value="0">Adults</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-									<div class="custom-select">
-										<select>
-											<option value="0">Children</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-								</div>
-								<button class="booking_form_button ml-lg-auto">book now</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
 	<!-- Contact -->
 
 	<div class="contact">
@@ -136,24 +94,80 @@
 					<div class="col">
 						<div class="section_title text-center">
 							<div>Ciao</div>
-							<h1>Say Hello</h1>
+							<h1>Hotel Staff</h1>
+						</div>
+						<div>
+							
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+
+
+ <div style="margin-left: 42.5%; margin-top: 20px;"> 
+<form action=""> 
+  <select name="customers" onchange="showCustomer(this.value)">
+    <option value="0">Select a staff member:</option>
+    <option value="1">Argjenta Gashi </option>
+    <option value="2 ">Rigon Pacarizi</option>
+    <option value="3">Gresa Islami</option>
+    <option value="4">Ylli Prapashti</option>
+  </select>
+</form>
+</div>
+<br>
+<div style="margin-left: 7%;" id="txtHint"></div>
+
+<script>
+function showCustomer(str) {
+  var xhttp;  
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "getcustomer.php?q="+str, true);
+  xhttp.send();
+}
+</script>
+
 						</div>
 						<div class="contact_text text-center">
 							<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis.</p>
 						</div>
 						<div class="contact_form_container">
-							<form action="#" class="contact_form text-center">
+						<form action="contactform.php" method="POST"class="contact_form text-center">
+							<?php
+					if(isset($_GET['error'])){
+						if($_GET['error']=="emptyfields"){
+							echo'<p style="font-size:30px; padding:20px 0; font-weight:900; color:red;"> Fill in all fields!</p>';
+						} 
+					} 
+					?>
+							
 								<div class="row">
 									<div class="col-lg-6">
-										<input type="text" class="contact_input" placeholder="Your name" required="required">
+										<input type="text" name="name" class="contact_input" placeholder="Your name" required="required">
 									</div>
 									<div class="col-lg-6">
-										<input type="email" class="contact_input" placeholder="Your email" required="required">
+										<input type="email" name="email" class="contact_input" placeholder="Your email" required="required">
 									</div>
 								</div>
-								<input type="text" class="contact_input" placeholder="Subject">
-								<textarea class="contact_input" placeholder="Message" required="required"></textarea>
+								<input type="text" name="subject" class="contact_input" placeholder="Subject">
+								<textarea class="contact_input" name="message" placeholder="Message" required="required"></textarea>
 								<button class="contact_button">send message</button>
+								
 							</form>
 						</div>
 					</div>
