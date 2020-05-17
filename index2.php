@@ -1,13 +1,7 @@
-<?php
-      session_start();
-      ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Marimar</title>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Marimar Hotel template project">
@@ -32,19 +26,18 @@
 			
 			<!-- Logo -->
 			<div class="logo"><a href="#"><img class="logo_1" src="images/logo.png" alt=""><img class="logo_2" src="images/logo_2.png" alt=""><img class="logo_3" src="images/logo_3.png" alt=""></a></div>
-           
-            <div id="account">
-                <button class="button menu_button" > <a href="login.php"> Log in </a> </button>
-            </div>
+
+			<!-- Main Nav -->
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-center justify-content-start">
 					<li class="active"><a href="index.html">Home</a></li>
 					<li><a href="about.html">About us</a></li>
 					<li><a href="rooms.html">Rooms</a></li>
 					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.php">Book You Room</a></li>
+					<li><a href="Log in.html">My Account</a></li>
+					<li><a href="booking.html">Book You Room</a></li>
 				</ul>
-            </nav>
+			</nav>
 
 			<!-- Header Right -->
 			<div class="header_right d-flex flex-row align-items-center justify-content-start">
@@ -59,7 +52,7 @@
 				</div>
 
 				<!-- Header Link -->
-				<div class="header_link"><a href="booking.php">Book Your Room Now</a></div>
+				<div class="header_link"><a href="#">Book Your Room Now</a></div>
 
 				<!-- Hamburger Button -->
 				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -199,10 +192,43 @@
 			<div class="row intro_row">
 				<div class="col-xl-8 col-lg-10 offset-xl-2 offset-lg-1">
 					<div class="intro_text text-center">
-						<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scele risque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperdiet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus.</p>
+						 <?php
+		               $filename = "file.txt";
+		               $file = fopen( $filename, "r" );
+		               if( $file == false ) {
+		                  echo ( "Error in opening file" );
+		                  exit();
+		               }
+		               $filesize = filesize( $filename );
+		               $filetext = fread( $file, $filesize );
+		               fclose( $file );
+		               echo ( "<p class=\"pp\">$filetext</p>" );
+		            ?>	
 					</div>
+
+					<?php
+              // e fshin content edhe ja nis prej fillimi..e krijon ni file tri nese s ekziston
+              //$myfile = fopen("newfile.txt", "w") or die("Unable to open file!"); 
+
+              // kur tshton tekst e bon append tekstin e ri qe shtohet
+              $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+              $txt = "PHPewgffgre\n";
+              fwrite($myfile, $txt);
+              $txt = "FIEwefewK\n";
+              fwrite($myfile, $txt);
+              fclose($myfile);
+              ?>
+              <p>
+                <p class="pp" style="text-align: center;">Para se tklikohet "Write function" tek index.php  mund tshtohet teksti
+          pastaj pas klikimit te butonit teksti i shtuar do te ruhet ne newfile.txt</p>
+            <input class="writebutton writebutton1" type="button" style="margin-left: 40%;" value="Write Function" 
+            onclick="window.location.reload();"/>
+            </p>
+
 				</div>
+
 			</div>
+
 			<div class="row gallery_row">
 				<div class="col">
 
@@ -520,4 +546,31 @@
 <script src="plugins/jquery-datepicker/jquery-ui.js"></script>
 <script src="js/custom.js"></script>
 </body>
+ <style>
+.writebutton {
+  background-color: #64cdb7;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.writebutton1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #64cdb7;
+}
+  .writebutton1:hover {
+  background-color: #64cdb7;
+  color: white;
+}
+</style>
 </html>
