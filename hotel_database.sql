@@ -30,14 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `booking_id` int(11) NOT NULL,
-  `booking_date` datetime DEFAULT NULL,
-  `duration_of_stay` varchar(10) DEFAULT NULL,
   `check_in_date` datetime DEFAULT NULL,
   `check_out_date` datetime DEFAULT NULL,
-  `booking_payment_type` varchar(45) DEFAULT NULL,
-  `total_rooms_booked` int(11) DEFAULT NULL,
-  `hotel_hotel_id` int(11) NOT NULL,
-  `total_amount` decimal(10,2) DEFAULT NULL
+  `hotel_hotel_id` int(11) NOT NULL
+ 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -60,11 +56,6 @@ CREATE TABLE `guests` (
 -- Dumping data for table `guests`
 --
 
-INSERT INTO `guests` (`guest_id`, `guest_first_name`, `guest_last_name`, `guest_email`, `hotel_id`, `username`, `guest_pass`) VALUES
-(1, 'emri', 'mbiemri', 'ennis.k@live.com', 1, 'ewf', '$2y$10$DBDJ7MJb9xN/0LxEcdihNeyvM4vMofX6nqcZ7KgKK7MCUdIVas1iu'),
-(2, 'emri', 'mbiemri', 'kewod!@kfwd.com', 1, '21', '$2y$10$K1b0KC24bEt0wa4/Hsh.8uOr7ggV.wzOUnzOtp/X8BQkeGuCujth6'),
-(3, 'emri', 'mbiemri', 'r@gmail.com', 1, '31w', '$2y$10$/04dymZzxsFLkXeygXpjGeS8uOvYVXxBumtrTW.ENCBQ3ghYjwDcW');
-
 -- --------------------------------------------------------
 
 --
@@ -73,21 +64,15 @@ INSERT INTO `guests` (`guest_id`, `guest_first_name`, `guest_last_name`, `guest_
 
 CREATE TABLE `hotel` (
   `hotel_id` int(11) NOT NULL,
-  `hotel_name` varchar(45) DEFAULT NULL,
-  `hotel_contact_number` varchar(12) DEFAULT NULL,
-  `hotel_email_address` varchar(45) DEFAULT NULL,
-  `hotel_description` varchar(100) DEFAULT NULL,
-  `hotel_floor_count` int(11) DEFAULT NULL,
-  `check_in_time` time DEFAULT NULL,
-  `check_out_time` time DEFAULT NULL
+  `hotel_name` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='		';
 
 --
 -- Dumping data for table `hotel`
 --
 
-INSERT INTO `hotel` (`hotel_id`, `hotel_name`, `hotel_contact_number`, `hotel_email_address`, `hotel_description`, `hotel_floor_count`, `check_in_time`, `check_out_time`) VALUES
-(1, 'Hotel Tekniku i leshit', NULL, 'fefwef@rkjwe.com', NULL, NULL, NULL, NULL);
+INSERT INTO `hotel` (`hotel_id`, `hotel_name`) VALUES
+(1, 'Hotel Tekniku ');
 
 -- --------------------------------------------------------
 

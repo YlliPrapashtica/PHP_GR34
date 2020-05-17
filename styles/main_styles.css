@@ -1101,6 +1101,11 @@ section
 	left: 40px;
 	bottom: 31px;
 }
+#account{
+	position: absolute;
+	top:0;
+	right: 0;
+}
 .rooms_slider .owl-dots .owl-dot
 {
 	outline: none;

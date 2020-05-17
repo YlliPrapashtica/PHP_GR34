@@ -494,3 +494,7 @@ iframe {
     top: 0px;
     right: 0;
 }
+body > div.super_container > div.wrapper > div > form > div:nth-child(2) > div{
+	width: 100% !important;
+	margin-right: 0 !important;
+}

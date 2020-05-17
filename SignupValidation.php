@@ -1,14 +1,18 @@
 <?php
 
 require 'connect.php';
+$fullname = mysqli_real_escape_string($con, $_POST['fullname']);
 $username = mysqli_real_escape_string($con, $_POST['user']);
 $email = mysqli_real_escape_string($con, $_POST['email']);
 $password = mysqli_real_escape_string($con, $_POST['pass']);
 $password1 = mysqli_real_escape_string($con, $_POST['pass1']);
 $id = mysqli_insert_id($con);
 $hid = 1;
-$fn = "emri";
-$ln = "mbiemri";
+$fullnameSplit = preg_split("/[\s,]+/", $fullname); 
+  
+$fn = $fullnameSplit[0];
+$ln = $fullnameSplit[1];
+
 
 if(empty($username) || empty($email) || empty($password) || empty($password1)){
 
