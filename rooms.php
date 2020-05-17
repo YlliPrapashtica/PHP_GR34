@@ -51,15 +51,13 @@
 			<!-- Menu Navigation -->
 			<nav class="menu_nav text-center">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rooms.html">Rooms</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.html">Book You Room</a></li>
-					<li><a href="Log in.html">My Account</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About us</a></li>
+					<li><a href="rooms.php">Rooms</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
-			<div class="button menu_button"><a href="#">book now</a></div>
+			<div class="button menu_button"><a href="booking.php">Book now</a></div>
 
 			<!-- Menu Social -->
 			<div class="social menu_social">
@@ -91,35 +89,6 @@
 			<div class="row">
 				<div class="col">
 					<div class="booking_container d-flex flex-row align-items-end justify-content-start">
-						<form action="#" class="booking_form">
-							<div class="booking_form_container d-flex flex-lg-row flex-column align-items-start justify-content-start flex-wrap">
-								<div class="booking_form_inputs d-flex flex-row align-items-start justify-content-between flex-wrap">
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
-									<div class="custom-select">
-										<select>
-											<option value="0">Adults</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-									<div class="custom-select">
-										<select>
-											<option value="0">Children</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-								</div>
-								<button class="booking_form_button ml-lg-auto">book now</button>
-							</div>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -174,7 +143,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
+								<div class="button rooms_button"><a href="booking.php">book now</a></div>
 							</div>
 						</div>
 
@@ -203,7 +172,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
+								<div class="button rooms_button"><a href="booking.php">book now</a></div>
 							</div>
 						</div>
 
@@ -233,7 +202,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
+								<div class="button rooms_button"><a href="booking.php">book now</a></div>
 							</div>
 						</div>
 
@@ -269,7 +238,7 @@
 								<div class="footer_info d-flex flex-column align-items-center justify-content-start">
 									<div class="text-center">
 										<div>Address:</div>
-										<div>Main Str, no 23, New York</div>
+										<div>FIEK</div>
 									</div>
 								</div>
 							</div>
@@ -277,16 +246,12 @@
 								<div class="footer_info d-flex flex-column align-items-lg-start align-items-center justify-content-start">
 									<div class="text-center">
 										<div>Mail:</div>
-										<div>hotel@contact.com</div>
+										<div>hoteltekniku@gmail.com</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="footer_bar text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-				</div>
 			</div>
 		</div>
 	</footer>
