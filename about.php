@@ -52,15 +52,13 @@
 			<!-- Menu Navigation -->
 			<nav class="menu_nav text-center">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rooms.html">Rooms</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="booking.html">Book You Room</a></li>
-					<li><a href="Log in.html">My Account</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About us</a></li>
+					<li><a href="rooms.php">Rooms</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
-			<div class="button menu_button"><a href="#">book now</a></div>
+			<div class="button menu_button"><a href="booking.php">Book now</a></div>
 
 			<!-- Menu Social -->
 			<div class="social menu_social">
@@ -118,7 +116,7 @@
 										</select>
 									</div>
 								</div>
-								<button class="booking_form_button ml-lg-auto">book now</button>
+								<button class="booking_form_button ml-lg-auto"><a href="booking.php">Book now</button>
 							</div>
 						</form>
 					</div>
@@ -288,7 +286,7 @@
 								<div class="footer_info d-flex flex-column align-items-center justify-content-start">
 									<div class="text-center">
 										<div>Address:</div>
-										<div>Main Str, no 23, New York</div>
+										<div>FIEK</div>
 									</div>
 								</div>
 							</div>
@@ -296,7 +294,7 @@
 								<div class="footer_info d-flex flex-column align-items-lg-start align-items-center justify-content-start">
 									<div class="text-center">
 										<div>Mail:</div>
-										<div>hotel@contact.com</div>
+										<div>hoteltekniku@gmail.com</div>
 									</div>
 								</div>
 							</div>
