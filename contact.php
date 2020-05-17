@@ -136,7 +136,54 @@
 					<div class="col">
 						<div class="section_title text-center">
 							<div>Ciao</div>
-							<h1>Say Hello</h1>
+							<h1>Hotel Staff</h1>
+						</div>
+						<div>
+							
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+
+
+ <div style="margin-left: 42.5%; margin-top: 20px;"> 
+<form action=""> 
+  <select name="customers" onchange="showCustomer(this.value)">
+    <option value="0">Select a staff member:</option>
+    <option value="1">Argjenta Gashi </option>
+    <option value="2 ">Rigon Pacarizi</option>
+    <option value="3">Gresa Islami</option>
+    <option value="4">Ylli Prapashti</option>
+  </select>
+</form>
+</div>
+<br>
+<div style="margin-left: 7%;" id="txtHint"></div>
+
+<script>
+function showCustomer(str) {
+  var xhttp;  
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "getcustomer.php?q="+str, true);
+  xhttp.send();
+}
+</script>
+
 						</div>
 						<div class="contact_text text-center">
 							<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis.</p>
